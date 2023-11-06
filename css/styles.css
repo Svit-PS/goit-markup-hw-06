@@ -304,8 +304,14 @@ p {
   right: 8px;
 }
 
+.close-btn:hover .close-svg,
+.close-btn:focus .close-svg {
+  fill: var(--accent-txt-color);
+}
+
 .close-svg {
   fill: var(--dark-txt-color);
+  transition: fill var(--time) var(--cub-bezier);
 }
 
 .modal-wrapper-title {
@@ -332,26 +338,19 @@ p {
   position: relative;
 }
 
-.mw-label:focus-within .inp-info {
-  border-color: var(--accent-txt-color);
-}
-
 .mw-label:focus-within .mw-svg {
   fill: var(--accent-txt-color);
 }
 
-.mw-label:focus-within .mw-label-title {
-  color: var(--accent-txt-color);
-}
-
-.mw-label:focus-within .comment {
+.mw-label:focus-within .inp-info,
+.mw-label:focus-within .comment
+{
   border-color: var(--accent-txt-color);
 }
 
 .mw-label-title {
   display: block;
   margin-bottom: 4px;
-  transition: color var(--time) var(--cub-bezier);
 }
 
 .inp-info {
@@ -395,13 +394,7 @@ p {
 }
 
 .news-check {
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  clip: rect(0 0 0 0);
-  overflow: hidden;
+ 
 }
 
 .news-check:checked + .custom-check {
@@ -409,6 +402,14 @@ p {
   /* background-image: url("../images/svg/v.svg"); */
   /* background-size: contain; */
   /* background-origin: border-box; */
+  border-color: var(--accent-txt-color);
+}
+
+ .mw-label:focus-within .news-check:checked+.custom-check {
+  border-color: var(--main-txt-color);
+}
+
+.mw-label:focus-within .news-check:not(:checked) +.custom-check {
   border-color: var(--accent-txt-color);
 }
 
